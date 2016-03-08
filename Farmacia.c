@@ -11,6 +11,7 @@ typedef struct{
 	float precio;
 	char sintomas[];
 	char lab_patente[];
+	char presentacion[];
 
 }Medicamento;
 
