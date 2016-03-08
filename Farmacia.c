@@ -4,9 +4,14 @@
 
 int indice;
 
-typedef struct
-{
- 			/*Faltan definir los parametros a utilizar*/
+typedef struct{
+	
+	char nombre_med[];
+	char grupo_med[];
+	float precio;
+	char sintomas[];
+	char lab_patente[];
+
 }Medicamento;
 
 /*Aqui seran declaradas los prototipos de nuestras funciones*/
