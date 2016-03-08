@@ -14,58 +14,6 @@ typedef struct{
 
 }Medicamento;
 
-// No sabia donde poner los medicamentos así que aqui estan y pondre el precio del soriana, dodega aurrera, etc(precio en mexico)
-
-
-//Medicamentos Genericos
-Metformina, 30 tabletas de 850 gr - $65 
-Metrool, 20 tabletas de 100 gr - $15
-Paracetamol, Caja con frasco de 30 ml 100 mg/ml.Solucion gotas - $11
-Loratadina, 10 tabletas de 10 mmg - $43.50
-Katerolaco, 10 tabletas de 10 mg - $29.90
-Pravastanina, Caja con 30 tabletas de 10 mg - $46
-Ketoconazol, Caja con tubo con 40 gr de crema 2% - $56
-Senosidos A-B, Caja con 10 tabletas de 187 mg - $35
-Miconazol, , Caja con tubo con 20 gr de crema - $14.08
-Pantoprazol, Caja con 14 tabletas o grageas de 40 mg - $79
-Naproxeno Sodico con Paracetamol,  Caja con frasco con 15 tabletas de 275 mg a 300 mg - $21
-Ibopufreno, Caja con 20 tabletas o grageas de 400 mg - $19
-Nimesulina, 10 tabletas de 100 mg - $35
-Tamsulosina, Caja con 20 capsulas de 0.4 mg - $162.88
-Simbastatina, Caja con 14 tabletas de 10 mg- $64
-
-//Medicamentos de patente
-Mucosolvan, Frasco con 120 ml, solución con vaso dosificador - $72
-Steerimar, Caja con envase de 100 ml - $133.80
-Norvas, Caja con 30 tabletas de 5 mg - $499
-Supradol, Caja con 4 tabletas sublinguales de 30 mg - $82.95
-Riopan, Caja con frasco de 250 ml gel - $124
-Pantozol, Caja con 14 grageas de 40 mg - $408
-Libertrim sii, Caja con 24 comprimidos d 200 mg a 75 mg - $220
-Nootrolpil, Caja con 14 tabletas de 800 mg - $396
-Nexium-Mups, Caja con 14 tabletas de 40 mg - $421
-Novovartalon, Caja con 30 sobres con polvo - $547
-Plavix, Caja con 28 tabletas de 75 mg - $904.20
-Yasmin, Caja con 21 omprimidos - $218.10
-Meticorten, Caja con 30 tabletas de 5 mg - $204
-Livial, Caja con 30 talbetas de 2.5 mg - $444
-Treda, Caja con 20 tabletas - $96.70
-
-//Medicamentos
-Gabapentina, Caja con 15 capsulas de 300 mg - $76.98
-Gentamicina, Caja con 5 ampolletas de 2 ml. solución inyestable de 160 mg/2 ml - 22.50
-Glibenclamida, Caja con 50 tabletas de 5 mg -19.52
-Hidroxocobalamina Tiamida Pirioxida, Caja con 50 ampolletas de 2 ml - $90.17
-Lactacyd, Botella de 160 ml - $75
-Lantus Insulina Glarina, Caja con 1 frascoampul acon 10 ml - $1059.21
-Levitra, Caja con 1 tableta de 20 mg - $200.86
-Levofloxiano, Caja con 7 tabletas de 500 mg - $156.99
-
-
-
-
-
-
 /*Aqui seran declaradas los prototipos de nuestras funciones*/
 int menu(char texto[], int n);
 void captura_medicamento(Medicamento med);
