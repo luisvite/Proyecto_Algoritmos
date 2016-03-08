@@ -51,7 +51,15 @@ Meticorten, Caja con 30 tabletas de 5 mg - $204
 Livial, Caja con 30 talbetas de 2.5 mg - $444
 Treda, Caja con 20 tabletas - $96.70
 
-
+//Medicamentos
+Gabapentina, Caja con 15 capsulas de 300 mg - $76.98
+Gentamicina, Caja con 5 ampolletas de 2 ml. solución inyestable de 160 mg/2 ml - 22.50
+Glibenclamida, Caja con 50 tabletas de 5 mg -19.52
+Hidroxocobalamina Tiamida Pirioxida, Caja con 50 ampolletas de 2 ml - $90.17
+Lactacyd, Botella de 160 ml - $75
+Lantus Insulina Glarina, Caja con 1 frascoampul acon 10 ml - $1059.21
+Levitra, Caja con 1 tableta de 20 mg - $200.86
+Levofloxiano, Caja con 7 tabletas de 500 mg - $156.99
 
 
 
