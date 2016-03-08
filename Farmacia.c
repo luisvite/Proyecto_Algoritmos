@@ -16,6 +16,8 @@ typedef struct{
 
 // No sabia donde poner los medicamentos así que aqui estan y pondre el precio del soriana, dodega aurrera, etc(precio en mexico)
 
+
+//Medicamentos Genericos
 Metformina, 30 tabletas de 850 gr - $65 
 Metrool, 20 tabletas de 100 gr - $15
 Paracetamol, Caja con frasco de 30 ml 100 mg/ml.Solucion gotas - $11
@@ -31,6 +33,23 @@ Ibopufreno, Caja con 20 tabletas o grageas de 400 mg - $19
 Nimesulina, 10 tabletas de 100 mg - $35
 Tamsulosina, Caja con 20 capsulas de 0.4 mg - $162.88
 Simbastatina, Caja con 14 tabletas de 10 mg- $64
+
+//Medicamentos de patente
+Mucosolvan, Frasco con 120 ml, solución con vaso dosificador - $72
+Steerimar, Caja con envase de 100 ml - $133.80
+Norvas, Caja con 30 tabletas de 5 mg - $499
+Supradol, Caja con 4 tabletas sublinguales de 30 mg - $82.95
+Riopan, Caja con frasco de 250 ml gel - $124
+Pantozol, Caja con 14 grageas de 40 mg - $408
+Libertrim sii, Caja con 24 comprimidos d 200 mg a 75 mg - $220
+Nootrolpil, Caja con 14 tabletas de 800 mg - $396
+Nexium-Mups, Caja con 14 tabletas de 40 mg - $421
+Novovartalon, Caja con 30 sobres con polvo - $547
+Plavix, Caja con 28 tabletas de 75 mg - $904.20
+Yasmin, Caja con 21 omprimidos - $218.10
+Meticorten, Caja con 30 tabletas de 5 mg - $204
+Livial, Caja con 30 talbetas de 2.5 mg - $444
+Treda, Caja con 20 tabletas - $96.70
 
 
 
