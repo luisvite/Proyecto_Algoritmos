@@ -14,6 +14,31 @@ typedef struct{
 
 }Medicamento;
 
+// No sabia donde poner los medicamentos así que aqui estan y pondre el precio del soriana, dodega aurrera, etc(precio en mexico)
+
+Metformina, 30 tabletas de 850 gr - $65 
+Metrool, 20 tabletas de 100 gr - $15
+Paracetamol, Caja con frasco de 30 ml 100 mg/ml.Solucion gotas - $11
+Loratadina, 10 tabletas de 10 mmg - $43.50
+Katerolaco, 10 tabletas de 10 mg - $29.90
+Pravastanina, Caja con 30 tabletas de 10 mg - $46
+Ketoconazol, Caja con tubo con 40 gr de crema 2% - $56
+Senosidos A-B, Caja con 10 tabletas de 187 mg - $35
+Miconazol, , Caja con tubo con 20 gr de crema - $14.08
+Pantoprazol, Caja con 14 tabletas o grageas de 40 mg - $79
+Naproxeno Sodico con Paracetamol,  Caja con frasco con 15 tabletas de 275 mg a 300 mg - $21
+Ibopufreno, Caja con 20 tabletas o grageas de 400 mg - $19
+Nimesulina, 10 tabletas de 100 mg - $35
+Tamsulosina, Caja con 20 capsulas de 0.4 mg - $162.88
+Simbastatina, Caja con 14 tabletas de 10 mg- $64
+
+
+
+
+
+
+
+
 /*Aqui seran declaradas los prototipos de nuestras funciones*/
 int menu(char texto[], int n);
 void captura_medicamento(Medicamento med);
