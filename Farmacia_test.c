@@ -9,10 +9,11 @@ typedef struct
 	char grupo_med[MAX];
 	float precio;
 	char trata[MAX];
-	char via_administracion[MAX];
+	char v_a[MAX];    /*Via de administracion*/
 }Medicamento;
 
 int menu(char texto[], int n);
+void captura_medicamento(Medicamento m);
 
 int main(){
 	int num,o1,o2;
@@ -30,6 +31,13 @@ int main(){
 		switch(o1)
 		{
 			case 1:
+				if(indice<num)  //Aqui hay que revisar porque se supone que es num-1 pero marca un error si unicamente se quiere registrar un medicamento
+				{
+					captura_medicamento(med[indice+1]);
+				}
+				else
+					printf("Error, no hay espacio");
+				break;
 				break;
 			case 2:
 				break;
@@ -39,6 +47,7 @@ int main(){
 				break;
 		}
 	}while(o1!=5);
+	free(o1);
 }
 
 int Menu(char texto[], int n)
@@ -55,3 +64,61 @@ int Menu(char texto[], int n)
 	}while(opcion<1 || opcion>n);
 	return opcion;
 }
+
+void captura_medicamento(Medicamento m)
+{
+	indice ++;
+	printf("Nombre del medicamento: ");
+	fflush(stdin);
+	gets(&m.nombre_med);
+	printf("Grupo al que pertenece: ");
+	fflush(stdin);
+	gets(&m.grupo_med);
+	printf("Precio: ");
+	scanf("%d",&m.precio);
+	printf("Sintoma que trata: ");
+	fflush(stdin);
+	gets(&m.trata);
+	printf("Via de administracion: ");
+	fflush(stdin);
+	gets(&m.v_a);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
