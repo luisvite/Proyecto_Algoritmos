@@ -89,6 +89,7 @@ int main()
 				break;
 		}
 	}while(opcion!=5)
+	return 0;
 }
 
 /*Apartir de aqui ya declararemos nuestros metodos*/
@@ -105,7 +106,7 @@ int Menu(char texto[], int n)
 		}
 	}while(opcion<1 || opcion>n);
 	return opcion;
-};
+}
 
 void captura_medicamento(Medicamento med)
 {
@@ -124,14 +125,14 @@ void captura_medicamento(Medicamento med)
 	fflush(stdin);
 	gets(&med.via_administracion);
 
-};
+}
 
 int Borrar(int pos)
 {
 	/*Faltan determinar parametros*/
 
 	indice --;
-};
+}
 
 int Buscar(char texto[],Medicamento med)
 {
@@ -146,9 +147,9 @@ int Buscar(char texto[],Medicamento med)
 	else
 		printf("No existe el dato");
 	return (-1);
-};
+}
 
 void Actualizar(int pos)
 {
 	captura_medicamento(med[pos]);
-};
+}
