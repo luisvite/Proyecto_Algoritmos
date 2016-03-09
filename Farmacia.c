@@ -110,10 +110,19 @@ int Menu(char texto[], int n)
 void captura_medicamento(Medicamento med)
 {
 	printf("Nombre del medicamento: ", );
+	fflush(stdin);
+	gets(&med.nombre_med);
 	printf("Grupo al que pertenece: ", );
+	fflush(stdin);
+	gets(&med.grupo_med);
 	printf("Precio: ", );
+	scanf("%d",&med.precio)
 	printf("Sintoma que trata: ", );
+	fflush(stdin);
+	gets(&med.trata);
 	printf("Via de administracion: ", );
+	fflush(stdin);
+	gets(&med.via_administracion);
 
 };
 
