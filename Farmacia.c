@@ -28,7 +28,7 @@ int main()
 	char cap[MAX];
 
 	printf("Cuantos medicamentos quieres registrar: ");
-	scanf("%d",&t)
+	scanf("%d",&t);
 
 	med=(Medicamento *)malloc(t*sizeof(Medicamento));
 
@@ -47,7 +47,7 @@ int main()
 			case 2:
 				printf("Ingrese el nombre del medicamento a borrar: ");
 				fflush(stdin);
-				gets(&cap)
+				gets(&cap);
 				pos=Buscar(cap);
 				if(pos!=-1)
 				{
@@ -133,7 +133,7 @@ int Borrar(int pos)
 	indice --;
 };
 
-int Buscar(char cap[])
+int Buscar(char texto[],Medicamento med)
 {
 	int i;
 	for(i=0;i<=indice;i++)
@@ -145,10 +145,10 @@ int Buscar(char cap[])
 	}
 	else
 		printf("No existe el dato");
-	return -1;
+	return (-1);
 };
 
 void Actualizar(int pos)
 {
 	captura_medicamento(med[pos]);
-}
+};
