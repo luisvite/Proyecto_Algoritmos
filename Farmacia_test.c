@@ -1,9 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #define MAX 30
-
 /*Este documento es sin errores de compilacion nada mas es para ir testeando que todo valla bien hasta que  terminemos el proyecto*/
-
 int indice;
 
 int menu(char texto[], int n);
