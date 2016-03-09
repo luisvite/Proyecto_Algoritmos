@@ -9,9 +9,8 @@ typedef struct{
 	char nombre_med[];
 	char grupo_med[];
 	float precio;
-	char sintomas[];
-	char lab_patente[];
-	char presentacion[];
+	char trata[];
+	char via_administracion[];
 
 }Medicamento;
 
