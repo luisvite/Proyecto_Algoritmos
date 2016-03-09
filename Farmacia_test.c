@@ -12,8 +12,18 @@ int main(){
 	int opcion;
 		
 	do{
-		opcion = Menu("1) Agregar\n2) Borrar\n3) Consultar\n4) Actualizar\n5) Salir\n",5);
-		/*Aqui todavia no capturo nada por lo que aun no estan disponibles las opciones para utilizar XD*/
+		opcion = Menu("\t\t\tMENU PRINCIPAL\n1) Agregar\n2) Borrar\n3) Consultar\n4) Actualizar\n5) Salir\n\nSeleccione una opcion: ",5);
+		switch(opcion)
+		{
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+		}
 	}while(opcion!=5);
 }
 
