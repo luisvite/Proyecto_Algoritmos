@@ -4,14 +4,13 @@
 
 int indice;
 
-typedef struct{
-	
-	char nombre_med[];
-	char grupo_med[];
+typedef struct
+{	
+	char nombre_med[MAX];
+	char grupo_med[MAX];
 	float precio;
-	char trata[];
-	char via_administracion[];
-
+	char trata[MAX];
+	char via_administracion[MAX];
 }Medicamento;
 
 /*Aqui seran declaradas los prototipos de nuestras funciones*/
@@ -110,6 +109,11 @@ int Menu(char texto[], int n)
 
 void captura_medicamento(Medicamento med)
 {
+	printf("Nombre del medicamento: ", );
+	printf("Grupo al que pertenece: ", );
+	printf("Precio: ", );
+	printf("Sintoma que trata: ", );
+	printf("Via de administracion: ", );
 
 };
 
