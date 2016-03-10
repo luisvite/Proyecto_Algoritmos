@@ -78,7 +78,7 @@ int main()
 				{
 					do
 					{
-						o2= Menu("\t\t\tConsulta\n1) Medicamento mas caro\n2) Medicamento mas barato\n3) Promedio de precios\n4) Mostrar medicamento por precio (mas caro)\n5) Mostrar medicamento por precio (mas barato)\n6) Mostrar medicamentos por sintoma\n7) Mostrar todos los medicamentos\n8) Regresar al menu principal\n\nSeleccione una opcion para realizar una consulta: ",8);					
+						o2= Menu("\t\t\tConsulta\n1) Medicamento mas caro\n2) Medicamento mas barato\n3) Promedio de precios\n4) Mostrar medicamento por precio (mas caro)\n5) Mostrar medicamento por precio (mas barato)\n6) Mostrar medicamentos por sintoma\n7) Mostrar todos los medicamentos\n8) Regresar al menu principal\n\nSeleccione una opcion: ",8);					
 						switch(o2)
 						{
 							case 1:
@@ -204,31 +204,6 @@ void Actualizar(Medicamento med)
 	fflush(stdin);
 	gets(&med.v_a);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
