@@ -22,6 +22,7 @@ void Captura_Medicamento(Medicamento m[]);
 int Buscar(char cadena[], Medicamento med[]);
 void Borrar(int pos,Medicamento med[]);
 void Actualizar(Medicamento med);
+void Muestra_Medicamentos(Medicamento med[]);
 
 //Se define el main
 int main()
@@ -99,6 +100,7 @@ int main()
 								break;
 							case 7:
 								//Mostrar todos los medicamentos
+								Muestra_Medicamentos(med);
 								break;
 						}
 					}while(o2!=8);
@@ -155,7 +157,7 @@ void Captura_Medicamento(Medicamento m[])
 	fflush(stdin);
 	gets(&m[indice].grupo_med);
 	printf("Precio: ");
-	scanf("%d",&m[indice].precio);
+	scanf("%f",&m[indice].precio);
 	printf("Sintoma que trata: ");
 	fflush(stdin);
 	gets(&m[indice].trata);
@@ -194,7 +196,7 @@ void Actualizar(Medicamento med)
 	fflush(stdin);
 	gets(&med.grupo_med);
 	printf("Precio: ");
-	scanf("%d",&med.precio);
+	scanf("%f",&med.precio);
 	printf("Sintoma que trata: ");
 	fflush(stdin);
 	gets(&med.trata);
@@ -203,6 +205,18 @@ void Actualizar(Medicamento med)
 	gets(&med.v_a);
 }
 
+void Muestra_Medicamentos(Medicamento med[])
+{
+	int i;
+	for (i=0;i<=indice;i++)
+	{
+		printf("\nNombre del medicamento: %s", med[i].nombre_med);
+		printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+		printf("\nPrecio: %2f",med[i].precio);
+		printf("\nSintoma que trata: %s", med[i].trata);
+		printf("\nVia de administracion: %s \n\n",med[i].v_a);
+	}
+}
 
 
 
