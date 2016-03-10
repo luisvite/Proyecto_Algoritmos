@@ -26,7 +26,8 @@ void Borrar(int pos,Medicamento med[]);
 void Actualizar(Medicamento med);
 
 //Se define el main
-int main(){
+int main()
+{
 	int num,o1,o2,pos;
 	Medicamento *med;
 	char cadena[MAX];
@@ -40,7 +41,8 @@ int main(){
 	
 	printf("\n");
 	
-	do{
+	do
+	{
 		o1 = Menu("\t\t\tMENU PRINCIPAL\n1) Agregar\n2) Borrar\n3) Consultar\n4) Actualizar\n5) Salir\n\nSeleccione una opcion: ",5);
 		switch(o1)
 		{
@@ -72,6 +74,41 @@ int main(){
 				}
 				break;
 			case 3:
+				if(indice!=-1)
+				{
+					do
+					{
+						o2= Menu("\t\t\tConsulta\n1) Medicamento mas caro\n2) Medicamento mas barato\n3) Promedio de precios\n4) Mostrar medicamento por precio (mas caro)\n5) Mostrar medicamento por precio (mas barato)\n6) Mostrar medicamentos por sintoma\n7) Mostrar todos los medicamentos\n8) Regresar al menu principal\n\nSeleccione una opcion para realizar una consulta: ",8);					
+						switch(o2)
+						{
+							case 1:
+								//Medicamento mas caro
+								break;
+							case 2:
+								//Medicamento mas barato
+								break;
+							case 3:
+								//Promedio de precios
+								break;
+							case 4:
+								//Ordenar por precio(mas caro)
+								break;
+							case 5:
+								//Ordenar por precio(mas barato)
+								break;
+							case 6:
+								//Mostrar medicamentos por sintoma
+								break;
+							case 7:
+								//Mostrar todos los medicamentos
+								break;
+						}
+					}while(o2!=8);
+				}
+				else
+				{
+					printf("Error no hay ningun dato para poder realizar una consulta\n");
+				}
 				break;
 			case 4:
 				if (indice!=-1)
