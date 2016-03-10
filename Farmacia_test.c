@@ -18,6 +18,7 @@ typedef struct
 }Medicamento;
 //Se empiezan a declarar metodos
 int Menu(char texto[], int n);
+int Insertar(int indice,int med);
 int Lleno(int indice,int num);
 int Vacio(int indice);
 void Captura_Medicamento(Medicamento m[]);
@@ -28,6 +29,7 @@ void Actualizar(Medicamento med);
 //Se define el main
 int main()
 {
+	
 	int num,o1,o2,pos;
 	Medicamento *med;
 	char cadena[MAX];
@@ -41,6 +43,8 @@ int main()
 	
 	printf("\n");
 	
+
+	
 	do
 	{
 		o1 = Menu("\t\t\tMENU PRINCIPAL\n1) Agregar\n2) Borrar\n3) Consultar\n4) Actualizar\n5) Salir\n\nSeleccione una opcion: ",5);
@@ -49,6 +53,13 @@ int main()
 			case 1:
 				if(indice<num-1)
 				{
+					Printf("Dame el nombre del medicamento:");
+					fflush(stdin);
+					gets(cadena);
+					pos=Buscar(cadena, med);
+					if(pos!=-1)
+					{
+					Agregar(med[pos]);
 					Captura_Medicamento(med);
 				}
 				else
@@ -146,6 +157,26 @@ int Menu(char texto[], int n)
 	}while(opcion<1 || opcion>n);
 	return opcion;
 }
+
+
+Medicamento *CreaMedicamento(int max){
+   //crea la estructura Medicamento
+   Medicamento *med;
+   a=(Medicamento *)malloc(sizeof(Medicamento));
+
+   //inicializa datos de la estructura
+   a->indice = -1;
+   a->max = max;
+   a->Medicamento=(int *)malloc(sizeof(int)*a->max); //dimensiona el Medicamento de tamaño max
+   return a;
+
+
+void Insertar(Medicamento *med,int dato){
+    a->indice++;
+    a->Medicamento[med->indice]= dato;
+}
+
+
 
 void Captura_Medicamento(Medicamento m[])
 {
