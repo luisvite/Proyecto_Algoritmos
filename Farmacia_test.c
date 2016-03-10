@@ -1,7 +1,9 @@
 //Se definen las librerias a utilizar
 /*Este documento es sin errores de compilacion nada mas es para ir testeando que todo valla bien hasta que  terminemos el proyecto*/
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
+
 #define MAX 30
 //Se definen variables globales
 int indice=-1;
@@ -106,12 +108,13 @@ void Captura_Medicamento(Medicamento m[])
 
 int Buscar(char cadena[], Medicamento med[])
 {
-	int i;
+	int i,ret;
 	for(i=0;i<=indice;i++)
 	{
-		if(cadena==med[i].nombre_med) //Revisar como comparar cadenas de caracteres
+		ret = strncmp(cadena, med[i].nombre_med, MAX);
+		if(ret==0)
 		{
-			return(i);
+			return i;
 		}
 	}
 	printf("No existe el dato");
