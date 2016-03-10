@@ -23,7 +23,7 @@ int Vacio(int indice);
 void Captura_Medicamento(Medicamento m[]);
 int Buscar(char cadena[], Medicamento med[]);
 void Borrar(int pos,Medicamento med[]);
-void Actualizar(int pos, Medicamento med[]);
+void Actualizar(Medicamento med);
 
 //Se define el main
 int main(){
@@ -74,14 +74,21 @@ int main(){
 			case 3:
 				break;
 			case 4:
-				
-				if (indice!=-1){
-					Actualizar(med);
+				if (indice!=-1)
+				{
+					printf("Ingrese el nombre del medicamento a actualizar: ");
+					fflush(stdin);
+					gets(cadena);
+					pos=Buscar(cadena, med);
+					if(pos!=-1)
+					{
+						Actualizar(med[pos]);
 					}
-				else{
-					printf("Error, no se encontro el dato solicitado.\n");
+				}
+				else
+				{
+					printf("Error, no se encontro nunguna informacion para actualizar.\n");
 				}	
-				
 				break;
 		}
 	}while(o1!=5);
@@ -143,12 +150,23 @@ void Borrar(int pos,Medicamento med[])
 	indice--;
 }
 
-void Actualizar(int pos, Medicamento med[]){
-	
-	
+void Actualizar(Medicamento med)
+{
+	printf("Nombre del medicamento: ");
+	fflush(stdin);
+	gets(&med.nombre_med);
+	printf("Grupo al que pertenece: ");
+	fflush(stdin);
+	gets(&med.grupo_med);
+	printf("Precio: ");
+	scanf("%d",&med.precio);
+	printf("Sintoma que trata: ");
+	fflush(stdin);
+	gets(&med.trata);
+	printf("Via de administracion: ");
+	fflush(stdin);
+	gets(&med.v_a);
 }
-
-
 
 
 
