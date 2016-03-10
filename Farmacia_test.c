@@ -18,8 +18,6 @@ typedef struct
 }Medicamento;
 //Se empiezan a declarar metodos
 int Menu(char texto[], int n);
-int Lleno(int indice,int num);
-int Vacio(int indice);
 void Captura_Medicamento(Medicamento m[]);
 int Buscar(char cadena[], Medicamento med[]);
 void Borrar(int pos,Medicamento med[]);
