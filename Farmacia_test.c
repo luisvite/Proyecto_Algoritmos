@@ -6,7 +6,7 @@
 
 #define MAX 30
 //Se definen variables globales
-int indice=-1;
+int indice;
 //se declara la estructura medicamento
 typedef struct
 {	
@@ -22,12 +22,15 @@ int Lleno(int indice,int num);
 int Vacio(int indice);
 void Captura_Medicamento(Medicamento m[]);
 int Buscar(char cadena[], Medicamento med[]);
+void Borrar(int pos,Medicamento med[]);
 
 //Se define el main
 int main(){
 	int num,o1,o2,pos;
 	Medicamento *med;
 	char cadena[MAX];
+	
+	indice=-1;
 	
 	printf("Cuantos medicamentos quiere registrar como maximo: ");
 	scanf("%d",&num);
@@ -41,7 +44,7 @@ int main(){
 		switch(o1)
 		{
 			case 1:
-				if(indice<num)
+				if(indice<num-1)
 				{
 					Captura_Medicamento(med);
 				}
@@ -57,6 +60,10 @@ int main(){
 					fflush(stdin);
 					gets(cadena);
 					pos=Buscar(cadena, med);
+					if(pos!=-1)
+					{
+						Borrar(pos,med);
+					}
 				}
 				else
 				{
@@ -121,6 +128,11 @@ int Buscar(char cadena[], Medicamento med[])
 	return (-1);
 }
 
+void Borrar(int pos,Medicamento med[])
+{
+	med[pos]=med[indice];
+	indice--;
+}
 
 
 
