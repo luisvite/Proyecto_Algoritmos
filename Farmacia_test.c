@@ -23,6 +23,7 @@ int Vacio(int indice);
 void Captura_Medicamento(Medicamento m[]);
 int Buscar(char cadena[], Medicamento med[]);
 void Borrar(int pos,Medicamento med[]);
+void Actualizar(int pos, Medicamento med[]);
 
 //Se define el main
 int main(){
@@ -73,6 +74,14 @@ int main(){
 			case 3:
 				break;
 			case 4:
+				
+				if (indice!=-1){
+					Actualizar(med);
+					}
+				else{
+					printf("Error, no se encontro el dato solicitado.\n");
+				}	
+				
 				break;
 		}
 	}while(o1!=5);
@@ -134,6 +143,10 @@ void Borrar(int pos,Medicamento med[])
 	indice--;
 }
 
+void Actualizar(int pos, Medicamento med[]){
+	
+	
+}
 
 
 
