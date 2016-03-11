@@ -213,7 +213,7 @@ void Borrar(int pos,Medicamento med[])
 void Intercambio(Medicamento *med) {
    int i,j, aux;
 
-   for(i=0; i< a->indice ; i++) {
+   for(i=0; i< med->indice ; i++) {
       for(j=i+1; j<= med->indice; j++) {
          if (med->Medicamento[i] > med->Medicamento[j]){
             aux = med->Medicamento[i];
@@ -229,7 +229,7 @@ void Intercambio(Medicamento *med) {
 void Intercambio(Medicamento *med) {
    int k,l, aux;
 
-   for(k=0; k>a->indice ; k++) {
+   for(k=0; k>med->indice ; k++) {
       for(l=k+1; l>= med->indice; l++) {
          if (med->Medicamento[k] < med->Medicamento[l]){
             aux = med->Medicamento[k];
