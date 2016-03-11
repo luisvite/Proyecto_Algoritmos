@@ -22,6 +22,9 @@ void Captura_Medicamento(Medicamento m[]);
 int Buscar(char cadena[], Medicamento med[]);
 void Borrar(int pos,Medicamento med[]);
 void Actualizar(Medicamento med);
+float PromedioPrecios(Medicamento med[]);
+int BusquedaSintoma(char cadena[], Medicamento med[]);
+void mostrarXsintoma(char cadena[], Medicamento med[]);
 void Muestra_Medicamentos(Medicamento med[]);
 
 //Se define el main
@@ -30,6 +33,7 @@ int main()
 	int num,o1,o2,pos;
 	Medicamento *med;
 	char cadena[MAX];
+	float promedio;
 	
 	indice=-1;
 	
@@ -88,6 +92,8 @@ int main()
 								break;
 							case 3:
 								//Promedio de precios
+								promedio=PromedioPrecios(med);
+								printf("\nEl promedio de precios es: %2f \n",promedio);
 								break;
 							case 4:
 								//Ordenar por precio(mas caro)
@@ -97,6 +103,15 @@ int main()
 								break;
 							case 6:
 								//Mostrar medicamentos por sintoma
+								printf("Ingrese el sintoma que trata el medicamento: ");
+								fflush(stdin);
+								gets(cadena);
+								pos=BusquedaSintoma(cadena, med);
+								if(pos!=-1)
+								{			
+									printf("\t\t\tMedicamentos que tratan el sintoma %s\n",cadena);
+									mostrarXsintoma(cadena, med);
+								}
 								break;
 							case 7:
 								//Mostrar todos los medicamentos
@@ -141,7 +156,7 @@ int Menu(char texto[], int n)
 		scanf("%d",&opcion);
 		if (opcion<1 || opcion>n)
 		{
-			printf("Error:la opcion seleccionada no es valida");
+			printf("Error:la opcion seleccionada no es valida\n");
 		}
 	}while(opcion<1 || opcion>n);
 	return opcion;
@@ -203,6 +218,56 @@ void Actualizar(Medicamento med)
 	printf("Via de administracion: ");
 	fflush(stdin);
 	gets(&med.v_a);
+}
+
+float PromedioPrecios(Medicamento med[])
+{
+	int i,contador;
+	float promedio=0;
+	
+	contador=0;
+	
+	for(i=0;i<=indice;i++)
+	{
+		promedio=promedio+med[i].precio;
+		contador++;
+	}
+	
+	promedio=promedio/contador;
+	
+	return(promedio);
+}
+
+int BusquedaSintoma(char cadena[], Medicamento med[])
+{
+	int i,ret;
+	for(i=0;i<=indice;i++)
+	{
+		ret = strncmp(cadena, med[i].trata, MAX);
+		if(ret==0)
+		{
+			return i;
+		}
+	}
+	printf("No hay resgistrado algun medicamento que trate ese sintoma\n");
+	return (-1);
+}
+
+void mostrarXsintoma(char cadena[], Medicamento med[])
+{
+	int i,ret;
+	for(i=0;i<=indice;i++)
+	{
+		ret = strncmp(cadena, med[i].trata, MAX);
+		if(ret==0)
+		{
+			printf("\nNombre del medicamento: %s", med[i].nombre_med);
+			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nSintoma que trata: %s", med[i].trata);
+			printf("\nVia de administracion: %s \n\n",med[i].v_a);
+		}
+	}
 }
 
 void Muestra_Medicamentos(Medicamento med[])
