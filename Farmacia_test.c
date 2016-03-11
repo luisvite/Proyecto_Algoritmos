@@ -26,6 +26,8 @@ float PromedioPrecios(Medicamento med[]);
 int BusquedaSintoma(char cadena[], Medicamento med[]);
 void mostrarXsintoma(char cadena[], Medicamento med[]);
 void Muestra_Medicamentos(Medicamento med[]);
+void D_M_C(Medicamento med[]);
+void D_M_B(Medicamento med[]);
 
 //Se define el main
 int main()
@@ -90,11 +92,11 @@ int main()
 						{
 							case 1:
 								//Medicamento mas caro
-								Prinf("\nMedicamento más caro:%2f\n",med->Medicamento[j]= aux);
+								D_M_C(med);//Determina medicamento caro
 								break;
 							case 2:
 								//Medicamento mas barato
-								Prinf("\nMedicamento más barato:%2f\n",med->Medicamento[k]= aux);
+								D_M_B(med);//Determina medicamento barato
 								break;
 							case 3:
 								//Promedio de precios
@@ -208,37 +210,6 @@ void Borrar(int pos,Medicamento med[])
 	indice--;
 }
 
-//del case1 del case 3
-
-void Intercambio(Medicamento *med) {
-   int i,j, aux;
-
-   for(i=0; i< med->indice ; i++) {
-      for(j=i+1; j<= med->indice; j++) {
-         if (med->Medicamento[i] > med->Medicamento[j]){
-            aux = med->Medicamento[i];
-            med->Medicamento[i] = med->medicamento[j];
-            med->Medicamento[j]= aux;
-         }
-      }
-   }
-}
-//Del case 2 del case 3
-
-
-void Intercambio(Medicamento *med) {
-   int k,l, aux;
-
-   for(k=0; k>med->indice ; k++) {
-      for(l=k+1; l>= med->indice; l++) {
-         if (med->Medicamento[k] < med->Medicamento[l]){
-            aux = med->Medicamento[k];
-            med->Medicamento[k] = med->medicamento[l];
-            med->Medicamento[l]= aux;
-         }
-      }
-   }
-}
 void Actualizar(Medicamento med)
 {
 	printf("Nombre del medicamento: ");
@@ -318,6 +289,58 @@ void Muestra_Medicamentos(Medicamento med[])
 		printf("\nSintoma que trata: %s", med[i].trata);
 		printf("\nVia de administracion: %s \n\n",med[i].v_a);
 	}
+}
+
+void D_M_C(Medicamento med[])
+{
+	float aux;
+	int i;
+	aux=med[0].precio;
+	for(i=0;i<=indice;i++)
+	{
+		if(aux<med[i].precio)
+		{
+			aux=med[i].precio;
+		}
+	}
+	for(i=0;i<=indice;i++)
+	{
+		if(aux==med[i].precio)
+		{
+			printf("\nNombre del medicamento: %s", med[i].nombre_med);
+			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nSintoma que trata: %s", med[i].trata);
+			printf("\nVia de administracion: %s \n\n",med[i].v_a);
+		}
+	}
+	
+}
+
+void D_M_B(Medicamento med[])
+{
+	float aux;
+	int i;
+	aux=med[0].precio;
+	for(i=0;i<=indice;i++)
+	{
+		if(aux>med[i].precio)
+		{
+			aux=med[i].precio;
+		}
+	}
+	for(i=0;i<=indice;i++)
+	{
+		if(aux==med[i].precio)
+		{
+			printf("\nNombre del medicamento: %s", med[i].nombre_med);
+			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nSintoma que trata: %s", med[i].trata);
+			printf("\nVia de administracion: %s \n\n",med[i].v_a);
+		}
+	}
+	
 }
 
 
