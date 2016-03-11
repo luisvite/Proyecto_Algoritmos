@@ -90,9 +90,11 @@ int main()
 						{
 							case 1:
 								//Medicamento mas caro
+								Prinf("\nMedicamento más caro:%2f\n",med->Medicamento[j]= aux);
 								break;
 							case 2:
 								//Medicamento mas barato
+								Prinf("\nMedicamento más barato:%2f\n",med->Medicamento[k]= aux);
 								break;
 							case 3:
 								//Promedio de precios
@@ -206,6 +208,37 @@ void Borrar(int pos,Medicamento med[])
 	indice--;
 }
 
+//del case1 del case 3
+
+void Intercambio(Medicamento *med) {
+   int i,j, aux;
+
+   for(i=0; i< a->indice ; i++) {
+      for(j=i+1; j<= med->indice; j++) {
+         if (med->Medicamento[i] > med->Medicamento[j]){
+            aux = med->Medicamento[i];
+            med->Medicamento[i] = med->medicamento[j];
+            med->Medicamento[j]= aux;
+         }
+      }
+   }
+}
+//Del case 2 del case 3
+
+
+void Intercambio(Medicamento *med) {
+   int k,l, aux;
+
+   for(k=0; k>a->indice ; k++) {
+      for(l=k+1; l>= med->indice; l++) {
+         if (med->Medicamento[k] < med->Medicamento[l]){
+            aux = med->Medicamento[k];
+            med->Medicamento[k] = med->medicamento[l];
+            med->Medicamento[l]= aux;
+         }
+      }
+   }
+}
 void Actualizar(Medicamento med)
 {
 	printf("Nombre del medicamento: ");
