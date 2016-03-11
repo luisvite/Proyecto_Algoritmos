@@ -28,11 +28,16 @@ void mostrarXsintoma(char cadena[], Medicamento med[]);
 void Muestra_Medicamentos(Medicamento med[]);
 void D_M_C(Medicamento med[]);
 void D_M_B(Medicamento med[]);
+void GuardaArrAux(Medicamento med[],float auxiliar[]);
+void OrdenaMayMen(float auxiliar[]);
+void MuestraOrden(float auxiliar[],Medicamento med[]);
+void OrdenaMenMay(float auxiliar[]);
 
 //Se define el main
 int main()
 {
 	int num,o1,o2,pos;
+	float *auxiliar;
 	Medicamento *med;
 	
 	float promedio;
@@ -43,6 +48,7 @@ int main()
 	scanf("%d",&num);
 	
 	med=(Medicamento *)malloc(num*sizeof(Medicamento));
+	auxiliar=(float *)malloc(num*sizeof(float));
 	
 	printf("\n");
 	
@@ -104,10 +110,16 @@ int main()
 								printf("\nEl promedio de precios es: %2f \n",promedio);
 								break;
 							case 4:
-								//Ordenar por precio(mas caro)
+								//Ordenar por precio(mas caro a mas barato)
+								GuardaArrAux(med,auxiliar);//Guarda un arreglo auxiliar
+								OrdenaMayMen(auxiliar);
+								MuestraOrden(auxiliar,med);
 								break;
 							case 5:
-								//Ordenar por precio(mas barato)
+								//Ordenar por precio(mas barato a mas caro)
+								GuardaArrAux(med,auxiliar);//Guarda un arreglo auxiliar
+								OrdenaMenMay(auxiliar);
+								MuestraOrden(auxiliar,med);
 								break;
 							case 6:
 								//Mostrar medicamentos por sintoma
@@ -343,6 +355,69 @@ void D_M_B(Medicamento med[])
 	
 }
 
+void GuardaArrAux(Medicamento med[],float auxiliar[])
+{
+	int i;
+	for (i=0;i<=indice;i++)
+	{
+		auxiliar[i]=med[i].precio;
+	}
+}
+
+void OrdenaMayMen(float auxiliar[])
+{
+	int i,j;
+	float aux;
+	for(i=0;i<indice;i++)
+	{
+		for(j=i+1;j<=indice;j++)
+		{
+			if(auxiliar[i]<auxiliar[j])
+			{
+				aux=auxiliar[i];
+				auxiliar[i]=auxiliar[j];
+				auxiliar[j]=aux;
+			}
+		}
+	}
+}
+
+void MuestraOrden(float auxiliar[],Medicamento med[])
+{
+	int i,j;
+	for(i=0;i<=indice;i++)
+	{
+		for(j=0;j<=indice;j++)
+		{
+			if(auxiliar[i]==med[j].precio)
+			{
+				printf("\nNombre del medicamento: %s", med[j].nombre_med);
+				printf("\nGrupo al que pertenece: %s", med[j].grupo_med);
+				printf("\nPrecio: %2f",med[j].precio);
+				printf("\nSintoma que trata: %s", med[j].trata);
+				printf("\nVia de administracion: %s \n\n",med[j].v_a);
+			}
+		}
+	}
+}
+
+void OrdenaMenMay(float auxiliar[])
+{
+	int i,j;
+	float aux;
+	for(i=0;i<indice;i++)
+	{
+		for(j=i+1;j<=indice;j++)
+		{
+			if(auxiliar[i]>auxiliar[j])
+			{
+				aux=auxiliar[i];
+				auxiliar[i]=auxiliar[j];
+				auxiliar[j]=aux;
+			}
+		}
+	}
+}
 
 
 
