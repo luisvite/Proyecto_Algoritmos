@@ -32,7 +32,7 @@ int main()
 {
 	int num,o1,o2,pos;
 	Medicamento *med;
-	char cadena[MAX];
+	
 	float promedio;
 	
 	indice=-1;
@@ -46,7 +46,10 @@ int main()
 	
 	do
 	{
+		char cadena[MAX];
+		
 		o1 = Menu("\t\t\tMENU PRINCIPAL\n1) Agregar\n2) Borrar\n3) Consultar\n4) Actualizar\n5) Salir\n\nSeleccione una opcion: ",5);
+		
 		switch(o1)
 		{
 			case 1:
@@ -81,7 +84,8 @@ int main()
 				{
 					do
 					{
-						o2= Menu("\t\t\tConsulta\n1) Medicamento mas caro\n2) Medicamento mas barato\n3) Promedio de precios\n4) Mostrar medicamento por precio (mas caro)\n5) Mostrar medicamento por precio (mas barato)\n6) Mostrar medicamentos por sintoma\n7) Mostrar todos los medicamentos\n8) Regresar al menu principal\n\nSeleccione una opcion: ",8);					
+						char sintoma[MAX];
+						o2= Menu("\t\t\tConsulta\n1) Medicamento mas caro\n2) Medicamento mas barato\n3) Promedio de precios\n4) Mostrar medicamentos por precio (mas caro-mas barato)\n5) Mostrar medicamentos por precio (mas barato-mas caro)\n6) Mostrar medicamentos por sintoma\n7) Mostrar todos los medicamentos\n8) Regresar al menu principal\n\nSeleccione una opcion: ",8);					
 						switch(o2)
 						{
 							case 1:
@@ -105,12 +109,12 @@ int main()
 								//Mostrar medicamentos por sintoma
 								printf("Ingrese el sintoma que trata el medicamento: ");
 								fflush(stdin);
-								gets(cadena);
-								pos=BusquedaSintoma(cadena, med);
+								gets(sintoma);
+								pos=BusquedaSintoma(sintoma, med);
 								if(pos!=-1)
 								{			
-									printf("\t\t\tMedicamentos que tratan el sintoma %s\n",cadena);
-									mostrarXsintoma(cadena, med);
+									printf("\t\t\tMedicamentos que tratan el sintoma %s\n",sintoma);
+									mostrarXsintoma(sintoma, med);
 								}
 								break;
 							case 7:
