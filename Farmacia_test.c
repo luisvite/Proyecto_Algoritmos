@@ -36,7 +36,7 @@ void OrdenaMenMay(float auxiliar[]);
 //Se define el main
 int main()
 {
-	int num,o1,o2,pos;
+	int num,o1,o2,o3,pos;
 	float *auxiliar;
 	Medicamento *med;
 	
@@ -56,7 +56,7 @@ int main()
 	{
 		char cadena[MAX];
 		
-		o1 = Menu("\t\t\tMENU PRINCIPAL\n1) Agregar\n2) Borrar\n3) Consultar\n4) Actualizar\n5) Salir\n\nSeleccione una opcion: ",5);
+		o1 = Menu("\t\t\tMENU PRINCIPAL\n1) Agregar\n2) Borrar\n3) Consultar\n4) Actualizar\n5) Estadisticas \n6) Salir\n\nSeleccione una opcion: ",6);
 		
 		switch(o1)
 		{
@@ -93,35 +93,22 @@ int main()
 					do
 					{
 						char sintoma[MAX];
-						o2= Menu("\t\t\tConsulta\n1) Medicamento mas caro\n2) Medicamento mas barato\n3) Promedio de precios\n4) Mostrar medicamentos por precio (mas caro-mas barato)\n5) Mostrar medicamentos por precio (mas barato-mas caro)\n6) Mostrar medicamentos por sintoma\n7) Mostrar todos los medicamentos\n8) Regresar al menu principal\n\nSeleccione una opcion: ",8);					
+						o2= Menu("\t\t\tConsulta\n1) Mostrar medicamentos por precio (mas caro-mas barato)\n2) Mostrar medicamentos por precio (mas barato-mas caro)\n3) Mostrar medicamentos por sintoma\n4) Mostrar todos los medicamentos\n5) Regresar al menu principal\n\nSeleccione una opcion: ",5);					
 						switch(o2)
 						{
 							case 1:
-								//Medicamento mas caro
-								D_M_C(med);//Determina medicamento caro
-								break;
-							case 2:
-								//Medicamento mas barato
-								D_M_B(med);//Determina medicamento barato
-								break;
-							case 3:
-								//Promedio de precios
-								promedio=PromedioPrecios(med);
-								printf("\nEl promedio de precios es: %2f \n",promedio);
-								break;
-							case 4:
 								//Ordenar por precio(mas caro a mas barato)
 								GuardaArrAux(med,auxiliar);//Guarda un arreglo auxiliar
 								OrdenaMayMen(auxiliar);
 								MuestraOrden(auxiliar,med);
 								break;
-							case 5:
+							case 2:
 								//Ordenar por precio(mas barato a mas caro)
 								GuardaArrAux(med,auxiliar);//Guarda un arreglo auxiliar
 								OrdenaMenMay(auxiliar);
 								MuestraOrden(auxiliar,med);
 								break;
-							case 6:
+							case 3:
 								//Mostrar medicamentos por sintoma
 								printf("Ingrese el sintoma que trata el medicamento: ");
 								fflush(stdin);
@@ -133,12 +120,12 @@ int main()
 									mostrarXsintoma(sintoma, med);
 								}
 								break;
-							case 7:
+							case 4:
 								//Mostrar todos los medicamentos
 								Muestra_Medicamentos(med);
 								break;
 						}
-					}while(o2!=8);
+					}while(o2!=5);
 				}
 				else
 				{
@@ -162,9 +149,56 @@ int main()
 					printf("Error, no se encontro nunguna informacion para actualizar.\n");
 				}	
 				break;
+			case 5:
+				if(indice!=-1)
+				{
+					do
+					{
+						char sintoma[MAX];
+						o3= Menu("\t\t\tEstadisticas\n1) Medicamento mas barato \n2) Medicamento mas caro \n3) Promedio de precios \n4) Medicamento menos vendido \n5) Medicamento mas vendido \n6) Promedio de ventas por medicamento \n7) Sintoma con mas ventas \n8) Sintoma con menos ventas \n9) Promedio de ventas por sintoma \n10) Medicamento con mas cantidad en reserva \n11) Medicamento con menos cantidad en reserva \n12) Promedio de medicamentos en reserva \n13) Salir \n\nSeleccione una opcion: ",13);					
+						switch(o3)
+						{
+							case 1:
+								D_M_B(med);//Determina medicamento barato
+								break;
+							case 2:
+								D_M_C(med);//Determina medicamento caro
+								break;
+							case 3:
+								//Promedio de precios por medicamento
+								promedio=PromedioPrecios(med);
+								printf("\nEl promedio de precios es: %2f \n",promedio);
+								break;
+							case 4:
+								break;
+							case 5:
+								break;
+							case 6:
+								break;
+							case 7:
+								break;
+							case 8:
+								break;
+							case 9:
+								break;
+							case 10:
+								break;
+							case 11:
+								break;
+							case 12:
+								break;
+						}
+					}while(o3!=13);
+				}
+				else
+				{
+					printf("Error no hay ningun dato para poder mostrar alguna estadistica\n");
+				}
+				break;
 		}
-	}while(o1!=5);
+	}while(o1!=6);
 	free(med);
+	free(auxiliar);
 }
 
 int Menu(char texto[], int n)
