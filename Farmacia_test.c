@@ -13,6 +13,8 @@ typedef struct
 	char nombre_med[MAX];
 	char grupo_med[MAX];
 	float precio;
+	int NumVentas;
+	int Reserva;
 	char trata[MAX];
 	char v_a[MAX];    /*Via de administracion*/
 }Medicamento;
@@ -227,6 +229,10 @@ void Captura_Medicamento(Medicamento m[])
 	gets(&m[indice].grupo_med);
 	printf("Precio: ");
 	scanf("%f",&m[indice].precio);
+	printf("Numero de ventas: ");
+	scanf("%d",&m[indice].NumVentas);
+	printf("Cantidad en reserva: ");
+	scanf("%d",&m[indice].Reserva);
 	printf("Sintoma que trata: ");
 	fflush(stdin);
 	gets(&m[indice].trata);
@@ -266,6 +272,10 @@ void Actualizar(Medicamento med)
 	gets(&med.grupo_med);
 	printf("Precio: ");
 	scanf("%f",&med.precio);
+	printf("Numero de ventas: ");
+	scanf("%d",&med.NumVentas);
+	printf("Cantidad en reserva: ");
+	scanf("%d",&med.Reserva);
 	printf("Sintoma que trata: ");
 	fflush(stdin);
 	gets(&med.trata);
@@ -318,6 +328,8 @@ void mostrarXsintoma(char cadena[], Medicamento med[])
 			printf("\nNombre del medicamento: %s", med[i].nombre_med);
 			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
 			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nNumero de ventas: %d",med[i].NumVentas);
+			printf("\nCantidad en reserva: %d",med[i].Reserva);
 			printf("\nSintoma que trata: %s", med[i].trata);
 			printf("\nVia de administracion: %s \n\n",med[i].v_a);
 		}
@@ -332,6 +344,8 @@ void Muestra_Medicamentos(Medicamento med[])
 		printf("\nNombre del medicamento: %s", med[i].nombre_med);
 		printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
 		printf("\nPrecio: %2f",med[i].precio);
+		printf("\nNumero de ventas: %d",med[i].NumVentas);
+		printf("\nCantidad en reserva: %d",med[i].Reserva);
 		printf("\nSintoma que trata: %s", med[i].trata);
 		printf("\nVia de administracion: %s \n\n",med[i].v_a);
 	}
@@ -356,6 +370,8 @@ void D_M_C(Medicamento med[])
 			printf("\nNombre del medicamento: %s", med[i].nombre_med);
 			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
 			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nNumero de ventas: %d",med[i].NumVentas);
+			printf("\nCantidad en reserva: %d",med[i].Reserva);
 			printf("\nSintoma que trata: %s", med[i].trata);
 			printf("\nVia de administracion: %s \n\n",med[i].v_a);
 		}
@@ -382,6 +398,8 @@ void D_M_B(Medicamento med[])
 			printf("\nNombre del medicamento: %s", med[i].nombre_med);
 			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
 			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nNumero de ventas: %d",med[i].NumVentas);
+			printf("\nCantidad en reserva: %d",med[i].Reserva);
 			printf("\nSintoma que trata: %s", med[i].trata);
 			printf("\nVia de administracion: %s \n\n",med[i].v_a);
 		}
@@ -428,6 +446,8 @@ void MuestraOrden(float auxiliar[],Medicamento med[])
 				printf("\nNombre del medicamento: %s", med[j].nombre_med);
 				printf("\nGrupo al que pertenece: %s", med[j].grupo_med);
 				printf("\nPrecio: %2f",med[j].precio);
+				printf("\nNumero de ventas: %d",med[j].NumVentas);
+			printf("\nCantidad en reserva: %d",med[j].Reserva);
 				printf("\nSintoma que trata: %s", med[j].trata);
 				printf("\nVia de administracion: %s \n\n",med[j].v_a);
 			}
