@@ -25,11 +25,17 @@ int Buscar(char cadena[], Medicamento med[]);
 void Borrar(int pos,Medicamento med[]);
 void Actualizar(Medicamento med);
 float PromedioPrecios(Medicamento med[]);
+float PromedioVentas(Medicamento med[]);
+float PromedioVS(char cadena[], Medicamento med[]);
 int BusquedaSintoma(char cadena[], Medicamento med[]);
 void mostrarXsintoma(char cadena[], Medicamento med[]);
 void Muestra_Medicamentos(Medicamento med[]);
 void D_M_C(Medicamento med[]);
 void D_M_B(Medicamento med[]);
+void DMayorCR(Medicamento med[]);
+void DMenorCR(Medicamento med[]);
+void DMenorV(Medicamento med[]);
+void DMayorV(Medicamento med[]);
 void GuardaArrAux(Medicamento med[],float auxiliar[]);
 void OrdenaMayMen(float auxiliar[]);
 void MuestraOrden(float auxiliar[],Medicamento med[]);
@@ -172,22 +178,52 @@ int main()
 								printf("\nEl promedio de precios es: %2f \n",promedio);
 								break;
 							case 4:
+								//menos vendido
+								DMenorV(med);
 								break;
 							case 5:
+								//mas vendido
+								DMayorV(med);
 								break;
 							case 6:
+								promedio=PromedioVentas(med);
+								printf("\nEl promedio de ventas es: %2f \n",promedio);
 								break;
 							case 7:
+								//cual es el sintoma que mas tiene ventas de medicamentos
+								
 								break;
 							case 8:
+								//cual es el sintoma que menos ventas tiene
+								
 								break;
 							case 9:
+								//Promedio de ventas por sintoma
+								printf("Ingrese el sintoma del cual desea saber el promedio de ventas: ");
+								fflush(stdin);
+								gets(cadena);
+								pos=BusquedaSintoma(cadena, med);
+								if(pos!=-1)
+								{
+									promedio=PromedioVS(cadena,med);
+									printf("\nEl promedio de ventas es: %2f \n",promedio);
+								}
+								else{
+									printf("El sintoma que busca no se encuentra");
+								}
 								break;
 							case 10:
+								//medicamento con mas cantidad en reserva
+								DMayorCR(med);
 								break;
 							case 11:
+								//medicamento con menos cantidad en reserva
+								DMenorCR(med);
 								break;
 							case 12:
+								//Promedio de medicamentos en reserva
+								promedio=PromedioVentas(med);
+								printf("\nEl promedio de medicamentos en reserva es: %2f \n",promedio);
 								break;
 						}
 					}while(o3!=13);
@@ -302,6 +338,46 @@ float PromedioPrecios(Medicamento med[])
 	return(promedio);
 }
 
+float PromedioVentas(Medicamento med[])
+{
+	int i,contador;
+	float promedio=0;
+	
+	contador=0;
+	
+	for(i=0;i<=indice;i++)
+	{
+		promedio=promedio+med[i].NumVentas;
+		contador++;
+	}
+	
+	promedio=promedio/contador;
+	
+	return(promedio);	
+}
+
+float PromedioVS(char cadena[], Medicamento med[])
+{
+	int i,ret,contador;
+	float promedio=0;
+	
+	contador=0;
+	
+	for(i=0;i<=indice;i++)
+	{
+		ret = strncmp(cadena, med[i].trata, MAX);
+		if(ret==0)
+		{
+			promedio=promedio+med[i].NumVentas;
+			contador++;
+		}
+	}
+	
+	promedio=promedio/contador;
+	
+	return(promedio);		
+}
+
 int BusquedaSintoma(char cadena[], Medicamento med[])
 {
 	int i,ret;
@@ -376,7 +452,6 @@ void D_M_C(Medicamento med[])
 			printf("\nVia de administracion: %s \n\n",med[i].v_a);
 		}
 	}
-	
 }
 
 void D_M_B(Medicamento med[])
@@ -404,9 +479,113 @@ void D_M_B(Medicamento med[])
 			printf("\nVia de administracion: %s \n\n",med[i].v_a);
 		}
 	}
-	
 }
 
+
+void DMayorCR(Medicamento med[])
+{
+	int i,aux;
+	aux=med[0].Reserva;
+	for(i=0;i<=indice;i++)
+	{
+		if(aux<med[i].Reserva)
+		{
+			aux=med[i].Reserva;
+		}
+	}
+	for(i=0;i<=indice;i++)
+	{
+		if(aux==med[i].Reserva)
+		{
+			printf("\nNombre del medicamento: %s", med[i].nombre_med);
+			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nNumero de ventas: %d",med[i].NumVentas);
+			printf("\nCantidad en reserva: %d",med[i].Reserva);
+			printf("\nSintoma que trata: %s", med[i].trata);
+			printf("\nVia de administracion: %s \n\n",med[i].v_a);
+		}
+	}	
+}
+
+void DMenorCR(Medicamento med[])
+{
+	int i,aux;
+	aux=med[0].Reserva;
+	for(i=0;i<=indice;i++)
+	{
+		if(aux>med[i].Reserva)
+		{
+			aux=med[i].Reserva;
+		}
+	}
+	for(i=0;i<=indice;i++)
+	{
+		if(aux==med[i].Reserva)
+		{
+			printf("\nNombre del medicamento: %s", med[i].nombre_med);
+			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nNumero de ventas: %d",med[i].NumVentas);
+			printf("\nCantidad en reserva: %d",med[i].Reserva);
+			printf("\nSintoma que trata: %s", med[i].trata);
+			printf("\nVia de administracion: %s \n\n",med[i].v_a);
+		}
+	}
+}
+
+void DMenorV(Medicamento med[])
+{
+	int i,aux;
+	aux=med[0].NumVentas;
+	for(i=0;i<=indice;i++)
+	{
+		if(aux>med[i].NumVentas)
+		{
+			aux=med[i].NumVentas;
+		}
+	}
+	for(i=0;i<=indice;i++)
+	{
+		if(aux==med[i].NumVentas)
+		{
+			printf("\nNombre del medicamento: %s", med[i].nombre_med);
+			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nNumero de ventas: %d",med[i].NumVentas);
+			printf("\nCantidad en reserva: %d",med[i].Reserva);
+			printf("\nSintoma que trata: %s", med[i].trata);
+			printf("\nVia de administracion: %s \n\n",med[i].v_a);
+		}
+	}
+}
+
+void DMayorV(Medicamento med[])
+{
+	int i,aux;
+	aux=med[0].NumVentas;
+	for(i=0;i<=indice;i++)
+	{
+		if(aux<med[i].NumVentas)
+		{
+			aux=med[i].NumVentas;
+		}
+	}
+	for(i=0;i<=indice;i++)
+	{
+		if(aux==med[i].NumVentas)
+		{
+			printf("\nNombre del medicamento: %s", med[i].nombre_med);
+			printf("\nGrupo al que pertenece: %s", med[i].grupo_med);
+			printf("\nPrecio: %2f",med[i].precio);
+			printf("\nNumero de ventas: %d",med[i].NumVentas);
+			printf("\nCantidad en reserva: %d",med[i].Reserva);
+			printf("\nSintoma que trata: %s", med[i].trata);
+			printf("\nVia de administracion: %s \n\n",med[i].v_a);
+		}
+	}	
+}
+					
 void GuardaArrAux(Medicamento med[],float auxiliar[])
 {
 	int i;
@@ -472,9 +651,6 @@ void OrdenaMenMay(float auxiliar[])
 		}
 	}
 }
-
-
-
 
 
 
